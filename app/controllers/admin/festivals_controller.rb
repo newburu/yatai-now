@@ -1,4 +1,4 @@
-class Admin::FestivalsController < ApplicationController
+class Admin::FestivalsController < Admin::BaseController
   before_action :authenticate_user!
   before_action :set_admin_festival, only: %i[ show edit update destroy ]
 
