@@ -2,11 +2,11 @@
 
 <h1>Editing festival</h1>
 
-<%= render "form", admin_festival: @admin_festival %>
+<%= render "form", festival: @festival %>
 
 <br>
 
 <div>
-  <%= link_to "Show this festival", @admin_festival %> |
+  <%= link_to "Show this festival", [:admin, @festival] %> |
   <%= link_to "Back to festivals", admin_festivals_path %>
 </div>

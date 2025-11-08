@@ -1,1 +1,1 @@
-json.array! @admin_festivals, partial: "admin/festivals/admin_festival", as: :admin_festival
+json.array! @festivals, partial: "admin/festivals/festival", as: :festival

@@ -4,11 +4,11 @@
 
 <h1>Festivals</h1>
 
-<div id="admin_festivals">
-  <% @admin_festivals.each do |admin_festival| %>
-    <%= render admin_festival %>
+<div id="festivals">
+  <% @festivals.each do |festival| %>
+    <%= render festival %>
     <p>
-      <%= link_to "Show this festival", admin_festival %>
+      <%= link_to "Show this festival", [:admin, festival] %>
     </p>
   <% end %>
 </div>
