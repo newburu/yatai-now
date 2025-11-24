@@ -1,69 +1,69 @@
-# Yatai Location Sharing App
+# 屋台位置共有アプリ
 
-This is a Ruby on Rails application for sharing the real-time location of festival stalls (yatai).
+これは、祭りの屋台のリアルタイムな位置情報を共有するためのRuby on Railsアプリケーションです。
 
-## Features
+## 機能
 
-- **Real-time Map View:** Visitors can view the current location of all stalls on a map.
-- **GPS Sending:** Designated users can send their stall's GPS location.
-- **Stall Management:** Stall managers can update their stall's information.
-- **Admin Dashboard:** Administrators can manage festivals, stalls, and user accounts.
+- **リアルタイムマップ表示:** 訪問者は、地図上で全ての屋台の現在位置を閲覧できます。
+- **GPS送信:** 指定されたユーザーは、自分の屋台のGPS位置情報を送信できます。
+- **屋台管理:** 屋台の管理者は、自分の屋台の情報を更新できます。
+- **管理者ダッシュボード:** 管理者は、祭り、屋台、およびユーザーアカウントを管理できます。
 
-## Technology Stack
+## 技術スタック
 
-- **Backend:** Ruby on Rails
-- **Database:** PostgreSQL
-- **Frontend:** Hotwire (Turbo, Stimulus), Importmap
-- **Authentication:** Devise
-- **Authorization:** Pundit
-- **Deployment:** Kamal
+- **バックエンド:** Ruby on Rails
+- **データベース:** PostgreSQL
+- **フロントエンド:** Hotwire (Turbo, Stimulus), Importmap
+- **認証:** Devise
+- **認可:** Pundit
+- **デプロイ:** Kamal
 
-## Development Setup
+## 開発環境のセットアップ
 
-### Prerequisites
+### 前提条件
 
-- Ruby (see `.ruby-version` for the exact version)
+- Ruby (`.ruby-version` ファイルで指定されているバージョン)
 - PostgreSQL
 
-### Installation
+### インストール
 
-1.  **Clone the repository:**
+1.  **リポジトリをクローンする:**
     ```bash
     git clone <repository-url>
     cd <repository-directory>
     ```
 
-2.  **Install Ruby dependencies:**
+2.  **Rubyの依存関係をインストールする:**
     ```bash
     bundle install
     ```
 
-3.  **Create and configure the database:**
-    - Create a PostgreSQL user and database.
-    - Copy `.env.example` to `.env` and fill in your database credentials:
+3.  **データベースを作成・設定する:**
+    - PostgreSQLのユーザーとデータベースを作成します。
+    - `.env.example` を `.env` にコピーし、データベースの認証情報を入力します:
       ```bash
       cp .env.example .env
       ```
 
-4.  **Set up the database:**
+4.  **データベースをセットアップする:**
     ```bash
     bundle exec rails db:create
     bundle exec rails db:migrate
     bundle exec rails db:seed_fu
     ```
 
-### Running the Application
+### アプリケーションの実行
 
-- **Start the Rails server:**
+- **Railsサーバーを起動する:**
   ```bash
   bundle exec rails server
   ```
 
-- **Run the test suite:**
+- **テストスイートを実行する:**
   ```bash
   bundle exec rails test
   ```
 
-## Deployment
+## デプロイ
 
-This application is configured for deployment with [Kamal](https://kamal-deploy.org/). Refer to the official Kamal documentation for deployment instructions.
+このアプリケーションは、[Kamal](https://kamal-deploy.org/) を使用したデプロイが設定されています。デプロイの手順については、Kamalの公式ドキュメントを参照してください。
