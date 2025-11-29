@@ -65,6 +65,6 @@ class Admin::StallsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def stall_params
-      params.expect(stall: [ :name, :description, :festival_id, :user_id, :status_text, :auth_code ])
+      params.require(:stall).permit(:name, :description, :festival_id, :user_id, :status_text, :auth_code, :icon)
     end
 end

@@ -14,6 +14,7 @@ class Api::V1::MapDataController < ApplicationController
 
     # 3. 地図に表示するために必要な情報だけを抽出して、JSON用の配列を作成
     data = stalls.map do |stall|
+      icon_url = stall.icon.attached? ? url_for(stall.icon) : nil
       {
         id: stall.id,
         name: stall.name,
@@ -22,7 +23,8 @@ class Api::V1::MapDataController < ApplicationController
         # (latest_location がまだ存在しない場合(nil) も考慮する)
         latitude: stall.latest_location&.latitude,
         longitude: stall.latest_location&.longitude,
-        last_updated: stall.latest_location&.timestamp
+        last_updated: stall.latest_location&.timestamp,
+        icon_url: icon_url
       }
     end
 
