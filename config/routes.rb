@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   # サイト管理者用 ( /admin/festivals など)
   namespace :admin do
+    resource :settings, only: [ :edit, :update ]
     resources :stalls
     resources :users
     resources :festivals
