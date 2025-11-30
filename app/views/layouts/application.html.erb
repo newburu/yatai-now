@@ -48,6 +48,7 @@
                   <li><%= link_to '祭り管理', admin_festivals_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(admin_festivals_path)}" %></li>
                   <li><%= link_to 'ユーザー管理', admin_users_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(admin_users_path)}" %></li>
                   <li><%= link_to '屋台管理', admin_stalls_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(admin_stalls_path)}" %></li>
+                  <li><%= link_to '全体設定', edit_admin_settings_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(edit_admin_settings_path)}" %></li>
                 <% elsif current_user.manager? %>
                   <li><%= link_to 'マイ屋台管理', manager_stall_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(manager_stall_path)}" %></li>
                 <% end %>
