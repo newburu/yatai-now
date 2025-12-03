@@ -71,6 +71,9 @@ gem "devise"
 # 権限
 gem "pundit"
 
+# i18n
+gem "rails-i18n"
+
 group :development, :test do
   gem "dotenv-rails"
   gem "seed-fu"
