@@ -16,13 +16,39 @@ en:
         about: "About"
         privacy_policy: "Privacy Policy"
         contact: "Contact"
+  common:
+    new: "New"
+    show: "Show"
+    edit: "Edit"
+    actions: "Actions"
+    back: "Back"
+    delete: "Delete"
+    delete_confirm: "Are you sure?"
+    cancel: "Cancel"
+    save: "Save"
+  admin:
+    users:
+      index:
+        title: "Users"
+        description: "A list of all users in the system."
+      show:
+        title: "User Details"
+      form:
+        prompt_role: "Please select a role"
   activerecord:
     models:
       user: "User"
     attributes:
       user:
+        email: "Email"
+        role: "Role"
         roles:
           viewer: "Viewer"
           sender: "GPS Sender"
           manager: "Stall Manager"
           admin: "Admin"
+  errors:
+    messages:
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"

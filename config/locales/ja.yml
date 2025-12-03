@@ -2,63 +2,53 @@ ja:
   layouts:
     application:
       header:
-        map: トップ (地図)
-        festivals: 祭り管理
-        users: ユーザー管理
-        stalls: 屋台管理
-        settings: 全体設定
-        my_stall: マイ屋台管理
-        edit_account: アカウント編集
-        logout: ログアウト
-        login: ログイン
-        logout_confirm: 本当にログアウトしますか？
+        map: "トップ (地図)"
+        festivals: "祭り管理"
+        users: "ユーザー管理"
+        stalls: "屋台管理"
+        settings: "全体設定"
+        my_stall: "マイ屋台管理"
+        edit_account: "アカウント編集"
+        logout: "ログアウト"
+        login: "ログイン"
+        logout_confirm: "本当にログアウトしますか？"
       footer:
-        about: 概要
-        privacy_policy: プライバシーポリシー
-        contact: お問い合わせ
+        about: "概要"
+        privacy_policy: "プライバシーポリシー"
+        contact: "お問い合わせ"
+  common:
+    new: "新規作成"
+    show: "詳細"
+    edit: "編集"
+    actions: "操作"
+    back: "戻る"
+    delete: "削除"
+    delete_confirm: "本当に削除しますか？"
+    cancel: "キャンセル"
+    save: "保存"
+  admin:
+    users:
+      index:
+        title: "ユーザー一覧"
+        description: "システムに登録されている全てのユーザーです。"
+      show:
+        title: "ユーザー詳細"
+      form:
+        prompt_role: "権限を選択してください"
   activerecord:
     models:
-      festival: 祭り
-      location: 場所
-      setting: 設定
-      stall: 出店
-      user: ユーザー
+      user: "ユーザー"
     attributes:
-      festival:
-        name: 名前
-        start_date: 開始日
-        end_date: 終了日
-        is_active: アクティブ
-        created_at: 作成日時
-        updated_at: 更新日時
-      location:
-        latitude: 緯度
-        longitude: 経度
-        timestamp: タイムスタンプ
-        created_at: 作成日時
-        updated_at: 更新日時
-      setting:
-        key: キー
-        value: 値
-        created_at: 作成日時
-        updated_at: 更新日時
-      stall:
-        name: 名前
-        description: 説明
-        auth_code: 認証コード
-        status_text: ステータステキスト
-        created_at: 作成日時
-        updated_at: 更新日時
       user:
-        email: メールアドレス
-        password: パスワード
-        password_confirmation: パスワード（確認）
-        remember_me: ログイン状態を保存する
-        role: 権限
+        email: "メールアドレス"
+        role: "権限"
         roles:
-          viewer: 閲覧者
-          sender: GPS送信者
-          manager: 出店管理者
-          admin: 管理者
-        created_at: 作成日時
-        updated_at: 更新日時
+          viewer: "閲覧者"
+          sender: "GPS送信者"
+          manager: "出店管理者"
+          admin: "管理者"
+  errors:
+    messages:
+      not_saved:
+        one: "1件のエラーが発生したため %{resource} は保存されませんでした:"
+        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"

@@ -1,37 +1,33 @@
 Rails.application.routes.draw do
-  # APIはロケールスコープの外に置く
+  # API and health check routes should be outside the locale scope
+  get "up" => "rails/health#show", as: :rails_health_check
   namespace :api do
     namespace :v1 do
-      resources :locations, only: [:create]
+      resources :locations, only: [ :create ]
       get "map_data", to: "map_data#index"
     end
   end
 
-  # ヘルスチェック
-  get "up" => "rails/health#show", as: :rails_health_check
-
+  # Scope all other routes to include the locale
   scope "(:locale)", locale: /en|ja/ do
-    # Deviseのルーティング
-    devise_for :users
-
-    # 1. 参照者（一般観覧客）向け
-    root "map#index"
+    get "sender/index"
     get "map", to: "map#index"
 
-    # 2. GPS送信担当者向け
+    root "map#index"
+
     get "sender", to: "sender#index"
 
-    # 3. 管理者向け
+    devise_for :users
+
     namespace :admin do
-      resource :settings, only: [:edit, :update]
+      resource :settings, only: [ :edit, :update ]
       resources :stalls
       resources :users
       resources :festivals
     end
 
-    # 4. 屋台管理者向け
     namespace :manager do
-      resource :stall, only: [:show, :edit, :update]
+      resource :stall, only: [ :show, :edit, :update ]
     end
   end
 end
