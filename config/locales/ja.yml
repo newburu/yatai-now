@@ -98,6 +98,7 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "パスワード（確認）"
+        current_password: "現在のパスワード"
         remember_me: "ログイン状態を保持する"
         role: "権限"
         roles:
@@ -122,6 +123,18 @@ ja:
       new:
         sign_in: "ログイン"
     registrations:
+      edit:
+        edit_account: "アカウント編集"
+        currently_waiting_confirmation_for_email: "確認待ちのメールアドレス: %{email}"
+        new_password: "新しいパスワード"
+        new_password_confirmation: "新しいパスワード（確認）"
+        leave_blank_if_you_don_t_want_to_change_it: "（変更しない場合は空欄のまま）"
+        we_need_your_current_password_to_confirm_your_changes: "（変更を確認するために入力が必要です）"
+        update: "更新する"
+        cancel_my_account: "アカウントの削除"
+        unhappy: "気に入らない場合はアカウントを削除できます。"
+        cancel_my_account_button: "アカウントを削除する"
+        are_you_sure: "本当にアカウントを削除しますか？"
       new:
         sign_up: "アカウント登録"
     passwords:
