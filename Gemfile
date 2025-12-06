@@ -76,5 +76,6 @@ group :development, :test do
   gem "seed-fu"
 end
 
+gem "rails-i18n", "~> 8.1.0"
 gem "tailwindcss-rails", "~> 4.4"
 gem "foreman"

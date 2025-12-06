@@ -40,17 +40,17 @@
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-blue-500 rounded-lg bg-blue-700 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-blue-600">
               <li>
-                <%= link_to 'トップ (地図)', root_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(root_path)}" %>
+                <%= link_to t('layouts.application.header.map'), root_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(root_path)}" %>
               </li>
 
               <% if user_signed_in? %>
                 <% if current_user.admin? %>
-                  <li><%= link_to '祭り管理', admin_festivals_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(admin_festivals_path)}" %></li>
-                  <li><%= link_to 'ユーザー管理', admin_users_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(admin_users_path)}" %></li>
-                  <li><%= link_to '屋台管理', admin_stalls_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(admin_stalls_path)}" %></li>
-                  <li><%= link_to '全体設定', edit_admin_settings_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(edit_admin_settings_path)}" %></li>
+                  <li><%= link_to t('layouts.application.header.festivals'), admin_festivals_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(admin_festivals_path)}" %></li>
+                  <li><%= link_to t('layouts.application.header.users'), admin_users_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(admin_users_path)}" %></li>
+                  <li><%= link_to t('layouts.application.header.stalls'), admin_stalls_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(admin_stalls_path)}" %></li>
+                  <li><%= link_to t('layouts.application.header.settings'), edit_admin_settings_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(edit_admin_settings_path)}" %></li>
                 <% elsif current_user.manager? %>
-                  <li><%= link_to 'マイ屋台管理', manager_stall_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(manager_stall_path)}" %></li>
+                  <li><%= link_to t('layouts.application.header.my_stall'), manager_stall_path, class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0 #{'underline' if current_page?(manager_stall_path)}" %></li>
                 <% end %>
 
                 <li class="hidden md:block text-gray-300">|</li>
@@ -63,18 +63,25 @@
                   <div class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 absolute right-0 group-hover:block">
                       <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
                         <li>
-                          <%= link_to 'アカウント編集', edit_user_registration_path, class: 'block px-4 py-2 hover:bg-gray-100' %>
+                          <%= link_to t('layouts.application.header.edit_account'), edit_user_registration_path, class: 'block px-4 py-2 hover:bg-gray-100' %>
                         </li>
                       </ul>
                       <div class="py-1">
-                        <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "本当にログアウトしますか？" }, class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100' %>
+                        <%= link_to t('layouts.application.header.logout'), destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: t('layouts.application.header.logout_confirm') }, class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100' %>
                       </div>
                   </div>
                 </li>
               <% else %>
                 <li>
-                  <%= link_to 'ログイン', new_user_session_path, class: 'block py-2 pl-3 pr-4 text-white bg-blue-500 rounded hover:bg-blue-400 md:bg-transparent md:text-white md:p-0 md:border md:border-white md:px-3 md:hover:bg-blue-700 md:hover:text-white transition' %>
+                  <%= link_to t('layouts.application.header.login'), new_user_session_path, class: 'block py-2 pl-3 pr-4 text-white bg-blue-500 rounded hover:bg-blue-400 md:bg-transparent md:text-white md:p-0 md:border md:border-white md:px-3 md:hover:bg-blue-700 md:hover:text-white transition' %>
                 </li>
+              <% end %>
+              <li class="hidden md:block text-gray-300">|</li>
+
+              <% if I18n.locale == :ja %>
+                <li><%= link_to "English", url_for(locale: 'en'), class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0" %></li>
+              <% else %>
+                <li><%= link_to "日本語", url_for(locale: 'ja'), class: "block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0" %></li>
               <% end %>
             </ul>
           </div>
@@ -127,13 +134,13 @@
         </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
             <li>
-                <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                <a href="#" class="hover:underline me-4 md:me-6"><%= t('layouts.application.footer.about') %></a>
             </li>
             <li>
-                <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                <a href="#" class="hover:underline me-4 md:me-6"><%= t('layouts.application.footer.privacy_policy') %></a>
             </li>
             <li>
-                <a href="#" class="hover:underline">Contact</a>
+                <a href="#" class="hover:underline"><%= t('layouts.application.footer.contact') %></a>
             </li>
         </ul>
         </div>

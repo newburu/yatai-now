@@ -1,31 +1,158 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      header:
+        map: "Top (Map)"
+        festivals: "Festivals"
+        users: "Users"
+        stalls: "Stalls"
+        settings: "Settings"
+        my_stall: "My Stall"
+        edit_account: "Edit Account"
+        logout: "Logout"
+        login: "Login"
+        logout_confirm: "Are you sure you want to log out?"
+      footer:
+        about: "About"
+        privacy_policy: "Privacy Policy"
+        contact: "Contact"
+  common:
+    new: "New"
+    show: "Show"
+    edit: "Edit"
+    actions: "Actions"
+    back: "Back"
+    delete: "Delete"
+    delete_confirm: "Are you sure?"
+    cancel: "Cancel"
+    save: "Save"
+    back_to_list: "Back to List"
+    confirm_delete: "Are you sure you want to delete this?"
+  admin:
+    users:
+      index:
+        title: "Users"
+        description: "A list of all users in the system."
+      show:
+        title: "User Details"
+      form:
+        prompt_role: "Please select a role"
+    festivals:
+      index:
+        title: "Festivals"
+        description: "A list of all managed festivals."
+        new_festival: "New Festival"
+        active: "Active"
+        inactive: "Inactive"
+        actions: "Actions"
+      show:
+        title: "Festival Details"
+      new:
+        title: "New Festival"
+      edit:
+        title: "Editing Festival"
+      form:
+        is_active_description: "When enabled, the festival will be visible on the map."
+    stalls:
+      index:
+        title: "Stalls"
+        description: "A list of all registered stalls."
+        new_stall: "New Stall"
+        not_set: "Not set"
+      show:
+        title: "Stall Details"
+      new:
+        title: "New Stall"
+      edit:
+        title: "Editing Stall"
+      form:
+        icon_description: "This icon is displayed on the map. A square-like image is recommended."
+        prompt_festival: "Select a festival"
+        prompt_manager: "Select a manager"
+        auth_code_description: "This is usually auto-generated, but can be set manually if needed."
+    settings:
+      edit:
+        title: "Global Settings"
+        map_display_settings: "Map Display Settings"
+        allow_anonymous_map_updates: "Allow automatic map updates for non-logged-in users"
+        allow_anonymous_map_updates_description: "If unchecked, users who are not logged in will need to manually reload the map."
+        save_settings: "Save Settings"
+  manager:
+    stalls:
+      show:
+        title: "Stall Information"
+        description: "Details of your managed stall."
+      edit:
+        title: "Edit Stall Information"
+        description_hint: "Describe the features of your stall, menu, etc."
+        icon_hint: "This icon is displayed on the map. A square-like image is recommended."
+        status_text_hint: "e.g., Open, Preparing, Moving"
+        update: "Update"
+  activerecord:
+    models:
+      user: "User"
+      festival: "Festival"
+      stall: "Stall"
+    attributes:
+      user:
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        current_password: "Current password"
+        remember_me: "Remember me"
+        role: "Role"
+        roles:
+          viewer: "Viewer"
+          sender: "GPS Sender"
+          manager: "Stall Manager"
+          admin: "Admin"
+      festival:
+        name: "Name"
+        is_active: "Status"
+      stall:
+        name: "Stall Name"
+        description: "Description"
+        icon: "Icon"
+        festival: "Festival"
+        manager: "Stall Manager"
+        status_text: "Current Status"
+        auth_code: "GPS Auth Code"
+  devise:
+    sessions:
+      new:
+        sign_in: "Log in"
+    registrations:
+      edit:
+        edit_account: "Edit Account"
+        currently_waiting_confirmation_for_email: "Currently waiting confirmation for: %{email}"
+        new_password: "New password"
+        new_password_confirmation: "New password confirmation"
+        leave_blank_if_you_don_t_want_to_change_it: "(leave blank if you don't want to change it)"
+        we_need_your_current_password_to_confirm_your_changes: "(we need your current password to confirm your changes)"
+        update: "Update"
+        cancel_my_account: "Cancel my account"
+        unhappy: "Unhappy?"
+        cancel_my_account_button: "Cancel my account"
+        are_you_sure: "Are you sure?"
+      new:
+        sign_up: "Sign up"
+    passwords:
+      new:
+        forgot_your_password: "Forgot your password?"
+        send_me_reset_password_instructions: "Send me reset password instructions"
+    shared:
+      links:
+        sign_in: "Log in"
+        sign_up: "Sign up"
+        forgot_your_password: "Forgot your password?"
+        didn_t_receive_confirmation_instructions: "Didn't receive confirmation instructions?"
+        didn_t_receive_unlock_instructions: "Didn't receive unlock instructions?"
+        sign_in_with_provider: "Sign in with %{provider}"
+      minimum_password_length:
+        one: "(%{count} character minimum)"
+        other: "(%{count} characters minimum)"
+  errors:
+    messages:
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"

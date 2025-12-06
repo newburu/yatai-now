@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  around_action :set_locale
+
   # Devise a strong parameter
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -42,5 +44,13 @@ class ApplicationController < ActionController::Base
   def render_no_assigned_yatai
     # ステータスコードは状況によりますが、ここでは「処理できない状態」として 422 を使ってみます。
     render template: "errors/no_assigned_yatai", status: :unprocessable_entity, layout: false
+  end
+
+  def set_locale(&action)
+    I18n.with_locale(params[:locale] || I18n.default_locale, &action)
+  end
+
+  def default_url_options
+    { locale: I18n.locale }
   end
 end
