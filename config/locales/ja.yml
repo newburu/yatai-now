@@ -26,6 +26,8 @@ ja:
     delete_confirm: "本当に削除しますか？"
     cancel: "キャンセル"
     save: "保存"
+    back_to_list: "一覧に戻る"
+    confirm_delete: "本当に削除しますか？"
   admin:
     users:
       index:
@@ -35,18 +37,108 @@ ja:
         title: "ユーザー詳細"
       form:
         prompt_role: "権限を選択してください"
+    festivals:
+      index:
+        title: "祭り一覧"
+        description: "管理されている全ての祭りです。"
+        new_festival: "新規作成"
+        active: "開催中"
+        inactive: "停止中"
+        actions: "操作"
+      show:
+        title: "祭り詳細"
+      new:
+        title: "新規祭り作成"
+      edit:
+        title: "祭り編集"
+      form:
+        is_active_description: "有効にすると地図上に表示されます。"
+    stalls:
+      index:
+        title: "屋台一覧"
+        description: "登録されている全ての屋台です。"
+        new_stall: "新規作成"
+        not_set: "未設定"
+      show:
+        title: "屋台詳細"
+      new:
+        title: "新規屋台作成"
+      edit:
+        title: "屋台編集"
+      form:
+        icon_description: "マップに表示されるアイコンです。正方形に近い画像推奨。"
+        prompt_festival: "祭りを選択"
+        prompt_manager: "担当者を選択"
+        auth_code_description: "通常は自動生成されますが、必要であれば手動で設定できます。"
+    settings:
+      edit:
+        title: "全体設定"
+        map_display_settings: "地図表示設定"
+        allow_anonymous_map_updates: "未ログインユーザーの地図自動更新を許可する"
+        allow_anonymous_map_updates_description: "チェックを外すと、ログインしていないユーザーは地図を手動で再読み込みする必要があります。"
+        save_settings: "設定を保存"
+  manager:
+    stalls:
+      show:
+        title: "屋台情報"
+        description: "管理している屋台の詳細情報です。"
+      edit:
+        title: "屋台情報の編集"
+        description_hint: "屋台の特徴やメニューなどを記述してください。"
+        icon_hint: "マップに表示されるアイコンです。正方形に近い画像推奨。"
+        status_text_hint: "例：営業中、準備中、移動中 など"
+        update: "更新する"
   activerecord:
     models:
       user: "ユーザー"
+      festival: "祭り"
+      stall: "屋台"
     attributes:
       user:
         email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード（確認）"
+        remember_me: "ログイン状態を保持する"
         role: "権限"
         roles:
           viewer: "閲覧者"
           sender: "GPS送信者"
           manager: "出店管理者"
           admin: "管理者"
+      festival:
+        name: "祭り名"
+        is_active: "状態"
+      stall:
+        name: "屋台名"
+        description: "紹介文"
+        icon: "アイコン画像"
+        festival: "祭り"
+        user_id: "屋台管理者" # For form label
+        manager: "屋台管理者" # For table header
+        status_text: "現在の状況"
+        auth_code: "GPS合言葉"
+  devise:
+    sessions:
+      new:
+        sign_in: "ログイン"
+    registrations:
+      new:
+        sign_up: "アカウント登録"
+    passwords:
+      new:
+        forgot_your_password: "パスワードを忘れましたか？"
+        send_me_reset_password_instructions: "パスワードのリセット方法を送信"
+    shared:
+      links:
+        sign_in: "ログイン"
+        sign_up: "アカウント登録"
+        forgot_your_password: "パスワードを忘れましたか？"
+        didn_t_receive_confirmation_instructions: "本人確認メールが届いていない場合"
+        didn_t_receive_unlock_instructions: "アカウントロック解除メールが届いていない場合"
+        sign_in_with_provider: "%{provider}でログイン"
+      minimum_password_length:
+        one: "(%{count}文字以上)"
+        other: "(%{count}文字以上)"
   errors:
     messages:
       not_saved:
