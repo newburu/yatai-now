@@ -16,6 +16,25 @@ ja:
         about: "概要"
         privacy_policy: "プライバシーポリシー"
         contact: "お問い合わせ"
+  home:
+    index:
+      title: "お祭りの「今」がわかる"
+      subtitle: "Yatai Now"
+      description: |
+        リアルタイムで屋台の位置情報をチェック。<br class="hidden sm:inline">
+        混雑状況や移動中の屋台も、もう見逃さない。
+      cta: "今すぐマップを見る"
+      features_title: "使い方"
+      features_subtitle: "Yatai Nowでできること"
+      features_description: "お祭りを最大限に楽しもう。"
+      feature_1_title: "マップを開く"
+      feature_1_description: "「マップを見る」ボタンをタップ。<br>現在開催中のお祭りエリア全体を表示します。"
+      feature_2_title: "屋台を探す"
+      feature_2_description: "地図上のアイコンが屋台の現在地。<br>お目当ての屋台がどこにいるか、一目でわかります。"
+      feature_3_title: "楽しむ！"
+      feature_3_description: "屋台を見つけたら、<br>美味しいお祭りの味を存分に楽しみましょう！"
+      bottom_cta_title: "準備はいいですか？"
+      bottom_cta_button: "マップへ移動"
   common:
     new: "新規作成"
     show: "詳細"
