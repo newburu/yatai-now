@@ -16,6 +16,25 @@ en:
         about: "About"
         privacy_policy: "Privacy Policy"
         contact: "Contact"
+  home:
+    index:
+      title: "Know the 'Now' of the Festival"
+      subtitle: "Yatai Now"
+      description: |
+        Check stall locations in real-time.<br class="hidden sm:inline">
+        Never miss moving stalls or crowds again.
+      cta: "View Map Now"
+      features_title: "How to Use"
+      features_subtitle: "What you can do with Yatai Now"
+      features_description: "Enjoy the festival to the fullest."
+      feature_1_title: "Open the Map"
+      feature_1_description: "Tap the 'View Map' button.<br>See the entire festival area currently active."
+      feature_2_title: "Find Stalls"
+      feature_2_description: "Icons on the map show current stall locations.<br>Find your target stall at a glance."
+      feature_3_title: "Enjoy!"
+      feature_3_description: "Once you find the stall,<br>enjoy the delicious festival food!"
+      bottom_cta_title: "Ready?"
+      bottom_cta_button: "Go to Map"
   common:
     new: "New"
     show: "Show"
