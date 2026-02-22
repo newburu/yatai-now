@@ -26,7 +26,7 @@ class Admin::FestivalsController < Admin::BaseController
 
     respond_to do |format|
       if @festival.save
-        format.html { redirect_to admin_festival_url(@festival), notice: "Festival was successfully created." }
+        format.html { redirect_to admin_festival_url(@festival), notice: t("flash.actions.create.notice", resource_name: Festival.model_name.human) }
         format.json { render :show, status: :created, location: @festival }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class Admin::FestivalsController < Admin::BaseController
   def update
     respond_to do |format|
       if @festival.update(festival_params)
-        format.html { redirect_to admin_festival_url(@festival), notice: "Festival was successfully updated.", status: :see_other }
+        format.html { redirect_to admin_festival_url(@festival), notice: t("flash.actions.update.notice", resource_name: Festival.model_name.human), status: :see_other }
         format.json { render :show, status: :ok, location: @festival }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class Admin::FestivalsController < Admin::BaseController
     @festival.destroy!
 
     respond_to do |format|
-      format.html { redirect_to admin_festivals_path, notice: "Festival was successfully destroyed.", status: :see_other }
+      format.html { redirect_to admin_festivals_path, notice: t("flash.actions.destroy.notice", resource_name: Festival.model_name.human), status: :see_other }
       format.json { head :no_content }
     end
   end

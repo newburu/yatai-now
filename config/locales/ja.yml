@@ -141,6 +141,15 @@ ja:
       new:
         forgot_your_password: "パスワードを忘れましたか？"
         send_me_reset_password_instructions: "パスワードのリセット方法を送信"
+      edit:
+        change_your_password: "パスワードの変更"
+        change_my_password: "パスワードを変更する"
+    confirmations:
+      new:
+        resend_confirmation_instructions: "確認手順を再送する"
+    unlocks:
+      new:
+        resend_unlock_instructions: "ロック解除手順を再送する"
     shared:
       links:
         sign_in: "ログイン"
