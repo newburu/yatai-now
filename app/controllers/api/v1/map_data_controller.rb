@@ -1,5 +1,7 @@
 class Api::V1::MapDataController < ApplicationController
   def index
+    expires_now
+
     # 1. 現在開催中の祭りを探す
     active_festival = Festival.find_by(is_active: true)
 
