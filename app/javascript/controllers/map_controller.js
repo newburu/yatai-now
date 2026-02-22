@@ -78,7 +78,9 @@ export default class extends Controller {
 
     console.log('地図データを取得中...');
     try {
-      const response = await fetch(this.API_URL);
+      const response = await fetch(`${this.API_URL}?_=${new Date().getTime()}`, {
+        cache: 'no-store'
+      });
       if (!response.ok) {
         console.error('地図データの取得に失敗しました');
         return;

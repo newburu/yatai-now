@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_11_30_053250) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_22_053150) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -50,8 +50,8 @@ ActiveRecord::Schema[8.1].define(version: 2025_11_30_053250) do
 
   create_table "locations", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.decimal "latitude", precision: 10
-    t.decimal "longitude", precision: 10
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
     t.bigint "stall_id", null: false
     t.datetime "timestamp"
     t.datetime "updated_at", null: false
