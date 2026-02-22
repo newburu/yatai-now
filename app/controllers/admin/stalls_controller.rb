@@ -25,7 +25,7 @@ class Admin::StallsController < ApplicationController
 
     respond_to do |format|
       if @stall.save
-        format.html { redirect_to [ :admin, @stall ], notice: "Stall was successfully created." }
+        format.html { redirect_to [ :admin, @stall ], notice: t("flash.actions.create.notice", resource_name: Stall.model_name.human) }
         format.json { render :show, status: :created, location: @stall }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class Admin::StallsController < ApplicationController
   def update
     respond_to do |format|
       if @stall.update(stall_params)
-        format.html { redirect_to [ :admin, @stall ], notice: "Stall was successfully updated.", status: :see_other }
+        format.html { redirect_to [ :admin, @stall ], notice: t("flash.actions.update.notice", resource_name: Stall.model_name.human), status: :see_other }
         format.json { render :show, status: :ok, location: @stall }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class Admin::StallsController < ApplicationController
     @stall.destroy!
 
     respond_to do |format|
-      format.html { redirect_to admin_stalls_path, notice: "Stall was successfully destroyed.", status: :see_other }
+      format.html { redirect_to admin_stalls_path, notice: t("flash.actions.destroy.notice", resource_name: Stall.model_name.human), status: :see_other }
       format.json { head :no_content }
     end
   end

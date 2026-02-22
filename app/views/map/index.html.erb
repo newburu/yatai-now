@@ -1,7 +1,11 @@
-<div id='map'
-     class="w-full h-[80vh] min-h-[400px] rounded-lg shadow-lg"
-     data-controller="map"
-     data-map-api-key-value="<%= ENV['GOOGLE_MAPS_API_KEY'] %>"
-     data-map-enable-polling-value="<%= @enable_polling %>"
-     data-map-user-signed-in-value="<%= user_signed_in? %>">
+<div class="relative w-full overflow-hidden rounded-2xl shadow-2xl shadow-twilight-900/10 border border-gray-200/50 bg-white/50 backdrop-blur-md">
+
+
+  <div id='map'
+       class="w-full h-[85vh] min-h-[500px]"
+       data-controller="map"
+       data-map-api-key-value="<%= ENV['GOOGLE_MAPS_API_KEY'] %>"
+       data-map-enable-polling-value="<%= @enable_polling %>"
+       data-map-user-signed-in-value="<%= user_signed_in? %>">
+  </div>
 </div>

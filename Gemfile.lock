@@ -369,6 +369,7 @@ GEM
     tailwindcss-ruby (4.1.16)
     tailwindcss-ruby (4.1.16-aarch64-linux-gnu)
     tailwindcss-ruby (4.1.16-aarch64-linux-musl)
+    tailwindcss-ruby (4.1.16-x86_64-darwin)
     tailwindcss-ruby (4.1.16-x86_64-linux-gnu)
     tailwindcss-ruby (4.1.16-x86_64-linux-musl)
     thor (1.4.0)
@@ -410,6 +411,7 @@ PLATFORMS
   aarch64-linux-musl
   arm-linux-gnu
   arm-linux-musl
+  x86_64-darwin
   x86_64-darwin-25
   x86_64-linux-gnu
   x86_64-linux-musl

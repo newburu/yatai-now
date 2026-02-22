@@ -1,1 +1,61 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
+  
+  /* Color palette tailored to 'Twilight & Lanterns' */
+  --color-twilight-950: #0a0f1d;
+  --color-twilight-900: #121c36;
+  --color-twilight-800: #1a2a4f;
+  --color-twilight-700: #223868;
+  --color-twilight-600: #2a4681;
+  
+  --color-lantern-500: #f59e0b;
+  --color-lantern-400: #fbbf24;
+  --color-lantern-300: #fcd34d;
+}
+
+@utility glass-panel {
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+@utility glass-panel-dark {
+  backdrop-filter: blur(12px);
+  background-color: rgba(18, 28, 54, 0.85); /* twilight-900 with opacity */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+@utility text-glow {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Custom smooth transition utilities */
+.nav-link {
+  @apply relative inline-block text-twilight-900 font-medium transition-colors duration-300 hover:text-twilight-600;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute left-0 bottom-[-4px] w-0 h-0.5 bg-lantern-500 transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link-dark {
+  @apply relative inline-block text-gray-200 font-medium transition-colors duration-300 hover:text-white;
+}
+
+.nav-link-dark::after {
+  content: '';
+  @apply absolute left-0 bottom-[-4px] w-0 h-0.5 bg-lantern-400 transition-all duration-300;
+}
+
+.nav-link-dark:hover::after {
+  @apply w-full;
+}
