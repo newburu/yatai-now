@@ -1,4 +1,32 @@
 ja:
+  sender:
+    index:
+      title: "GPS送信ページ"
+      description: "屋台管理者から共有された「合言葉」を入力して、<br>現在地を共有してください。"
+      auth_code_label: "合言葉"
+      start_sending: "送信開始"
+      stop_sending: "送信停止"
+      status_stopped: "（停止中）"
+      status_getting_location: "位置情報取得中..."
+      status_started: "送信を開始しました。"
+      status_success: "送信成功"
+      status_error: "エラー"
+      status_send_error: "送信エラー"
+      status_server_error: "サーバーエラー"
+      status_network_error: "通信エラー"
+      latitude: "緯度"
+      longitude: "経度"
+      alert_enter_auth_code: "合言葉を入力してください"
+      alert_waiting_for_gps: "位置情報がまだ取得できていません。少し待ってから再度お試しください。"
+      alert_gps_not_supported: "このブラウザはGPSに対応していません"
+  flash:
+    actions:
+      create:
+        notice: "%{resource_name}を作成しました。"
+      update:
+        notice: "%{resource_name}を更新しました。"
+      destroy:
+        notice: "%{resource_name}を削除しました。"
   layouts:
     application:
       header:

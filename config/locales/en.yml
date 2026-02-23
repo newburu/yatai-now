@@ -1,4 +1,32 @@
 en:
+  sender:
+    index:
+      title: "GPS Sending Page"
+      description: "Enter the Auth Code shared by the stall manager<br>to share your current location."
+      auth_code_label: "Auth Code"
+      start_sending: "Start Sending"
+      stop_sending: "Stop Sending"
+      status_stopped: "(Stopped)"
+      status_getting_location: "Getting location..."
+      status_started: "Sending started."
+      status_success: "Send Success"
+      status_error: "Error"
+      status_send_error: "Send Error"
+      status_server_error: "Server Error"
+      status_network_error: "Network Error"
+      latitude: "Latitude"
+      longitude: "Longitude"
+      alert_enter_auth_code: "Please enter the auth code."
+      alert_waiting_for_gps: "Location not acquired yet. Please wait a moment and try again."
+      alert_gps_not_supported: "This browser does not support GPS."
+  flash:
+    actions:
+      create:
+        notice: "%{resource_name} was successfully created."
+      update:
+        notice: "%{resource_name} was successfully updated."
+      destroy:
+        notice: "%{resource_name} was successfully destroyed."
   layouts:
     application:
       header:
