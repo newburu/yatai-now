@@ -60,11 +60,13 @@ ja:
     users:
       index:
         title: "ユーザー一覧"
-        description: "システムに登録されている全てのユーザーです。"
+        description: "システムを利用できる全ユーザー（管理者・屋台管理者）のリストです。"
+        new_user: "ユーザー追加"
       show:
         title: "ユーザー詳細"
       form:
-        prompt_role: "権限を選択してください"
+        prompt_role: "--- 選択してください ---"
+        leave_blank_to_keep: "（変更しない場合は空欄のままにしてください）"
     festivals:
       index:
         title: "祭り一覧"
@@ -152,6 +154,14 @@ ja:
       signed_out: "ログアウトしました。"
       already_signed_out: "すでにログアウトしています。"
     registrations:
+      destroyed: "アカウントを完全に削除しました。またのご利用をお待ちしております。"
+      signed_up: "ようこそ！ アカウント登録が完了しました。"
+      signed_up_but_inactive: "ログインするためには、アカウントを有効化してください。"
+      signed_up_but_locked: "アカウントが凍結されているためログインできません。"
+      signed_up_but_unconfirmed: "本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。"
+      update_needs_confirmation: "アカウント情報を更新しました。本人確認用のメールを送信しましたので、変更されたメールアドレスの確認処理を行ってください。"
+      updated: "アカウント情報を更新しました。"
+      updated_but_not_signed_in: "パスワードが正しく変更されました。再度ログインしてください。"
       edit:
         edit_account: "アカウント編集"
         currently_waiting_confirmation_for_email: "確認待ちのメールアドレス: %{email}"
