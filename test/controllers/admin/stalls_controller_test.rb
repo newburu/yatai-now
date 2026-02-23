@@ -32,17 +32,17 @@ class Admin::StallsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show stall" do
-    get admin_stall_url(@stall)
+    get admin_stall_url(locale: 'ja', id: @stall)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_admin_stall_url(@stall)
+    get edit_admin_stall_url(locale: 'ja', id: @stall)
     assert_response :success
   end
 
   test "should update stall" do
-    patch admin_stall_url(@stall), params: { stall: {
+    patch admin_stall_url(locale: 'ja', id: @stall), params: { stall: {
       auth_code: @stall.auth_code,
       description: @stall.description,
       festival_id: @stall.festival_id,
@@ -50,12 +50,12 @@ class Admin::StallsControllerTest < ActionDispatch::IntegrationTest
       status_text: @stall.status_text,
       user_id: @stall.manager.id
     } }
-    assert_redirected_to admin_stall_url(@stall)
+    assert_redirected_to admin_stall_url(locale: 'ja', id: @stall)
   end
 
   test "should destroy stall" do
     assert_difference("Stall.count", -1) do
-      delete admin_stall_url(@stall)
+      delete admin_stall_url(locale: 'ja', id: @stall)
     end
 
     assert_redirected_to admin_stalls_url

@@ -130,9 +130,7 @@ ja:
         remember_me: "ログイン状態を保持する"
         role: "権限"
         roles:
-          viewer: "閲覧者"
-          sender: "GPS送信者"
-          manager: "出店管理者"
+          manager: "屋台管理者"
           admin: "管理者"
       festival:
         name: "祭り名"

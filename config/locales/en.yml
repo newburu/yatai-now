@@ -130,8 +130,6 @@ en:
         remember_me: "Remember me"
         role: "Role"
         roles:
-          viewer: "Viewer"
-          sender: "GPS Sender"
           manager: "Stall Manager"
           admin: "Admin"
       festival:

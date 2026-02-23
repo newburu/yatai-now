@@ -6,7 +6,7 @@ class Stall < ApplicationRecord
   # user_id を manager_id として扱う (userモデルとの関連名を 'manager' にする)
   belongs_to :manager, class_name: "User", foreign_key: "user_id"
 
-  has_many :locations
+  has_many :locations, dependent: :destroy
 
   # 「最新の位置情報1件だけ」を簡単に取得するための関連付け
   has_one :latest_location, -> { order(timestamp: :desc) }, class_name: "Location"

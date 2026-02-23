@@ -20,31 +20,32 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_difference("User.count") do
       # Note: A real test would use a unique email
       post admin_users_url, params: { user: { email: "new_user@example.com", role: @user.role, password: "password", password_confirmation: "password" } }
+      puts @response.body if @response && !@response.successful?
     end
 
-    assert_redirected_to admin_user_url(User.last)
+    assert_redirected_to admin_user_url(locale: 'ja', id: User.last)
   end
 
   test "should show user" do
-    get admin_user_url(@user)
+    get admin_user_url(locale: 'ja', id: @user)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_admin_user_url(@user)
+    get edit_admin_user_url(locale: 'ja', id: @user)
     assert_response :success
   end
 
   test "should update user" do
-    patch admin_user_url(@user), params: { user: { email: @user.email, role: @user.role } }
-    assert_redirected_to admin_user_url(@user)
+    patch admin_user_url(locale: 'ja', id: @user), params: { user: { email: @user.email, role: @user.role } }
+    assert_redirected_to admin_user_url(locale: 'ja', id: @user)
   end
 
   test "should destroy user" do
     # To avoid foreign key constraint errors with stalls, use a user that is not a manager.
     user_to_delete = users(:viewer)
     assert_difference("User.count", -1) do
-      delete admin_user_url(user_to_delete)
+      delete admin_user_url(locale: 'ja', id: user_to_delete)
     end
 
     assert_redirected_to admin_users_url

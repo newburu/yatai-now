@@ -23,6 +23,13 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    # パスワードがフォームにないため自動生成する
+    if @user.password.blank?
+      generated_password = SecureRandom.alphanumeric(10)
+      @user.password = generated_password
+      @user.password_confirmation = generated_password
+    end
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to admin_user_url(@user), notice: t("flash.actions.create.notice", resource_name: User.model_name.human) }
