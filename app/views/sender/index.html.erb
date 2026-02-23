@@ -1,43 +1,42 @@
 <div class="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-md">
     <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-      GPS送信ページ
+      <%= t(".title") %>
     </h2>
     <p class="mt-2 text-center text-sm text-gray-600">
-      屋台管理者から共有された「合言葉」を入力して、<br>
-      現在地を共有してください。
+      <%= sanitize(t(".description")) %>
     </p>
   </div>
 
-  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-      <div class="space-y-6">
-        <div>
-          <label for="auth_code" class="block text-sm font-medium text-gray-700">
-            合言葉
-          </label>
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div class="space-y-6">
+          <div>
+            <label for="auth_code" class="block text-sm font-medium text-gray-700">
+              <%= t(".auth_code_label") %>
+            </label>
           <div class="mt-1">
             <input id="auth_code" name="auth_code" type="text" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="例: A-chiku-1234">
           </div>
         </div>
 
-        <div class="flex space-x-4">
-          <button id="start_sending" type="button" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed">
-            送信開始
-          </button>
-          <button id="stop_sending" type="button" disabled class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:bg-gray-400 disabled:cursor-not-allowed">
-            送信停止
-          </button>
-        </div>
+          <div class="flex space-x-4">
+            <button id="start_sending" type="button" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed">
+              <%= t(".start_sending") %>
+            </button>
+            <button id="stop_sending" type="button" disabled class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:bg-gray-400 disabled:cursor-not-allowed">
+              <%= t(".stop_sending") %>
+            </button>
+          </div>
 
-        <div class="mt-4">
-          <div id="status" class="p-4 rounded-md bg-gray-50 border border-gray-200 text-center font-medium text-gray-700">
-            （停止中）
+          <div class="mt-4">
+            <div id="status" class="p-4 rounded-md bg-gray-50 border border-gray-200 text-center font-medium text-gray-700">
+              <%= t(".status_stopped") %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </div>
 
 <script>
@@ -60,13 +59,13 @@
           (position) => {
             // 成功：最新の位置情報を保存
             lastPosition = position;
-            updateStatus(`位置情報取得中...<br>
-              緯度: ${position.coords.latitude.toFixed(6)}<br>
-              経度: ${position.coords.longitude.toFixed(6)}`);
+            updateStatus(`<%= j t(".status_getting_location") %><br>
+              <%= j t(".latitude") %>: ${position.coords.latitude.toFixed(6)}<br>
+              <%= j t(".longitude") %>: ${position.coords.longitude.toFixed(6)}`);
           },
           (error) => {
             // 失敗
-            updateStatus(`エラー: ${error.message}`, true);
+            updateStatus(`<%= j t(".status_error") %>: ${error.message}`, true);
           },
           {
             enableHighAccuracy: true, // 高精度モード
@@ -75,7 +74,7 @@
           }
         );
       } else {
-        updateStatus('このブラウザはGPSに対応していません', true);
+        updateStatus('<%= j t(".alert_gps_not_supported") %>', true);
       }
     }
 
@@ -83,11 +82,11 @@
     function startSending() {
       const authCode = authCodeInput.value.trim();
       if (authCode === "") {
-        alert('合言葉を入力してください');
+        alert('<%= j t(".alert_enter_auth_code") %>');
         return;
       }
       if (!lastPosition) {
-         alert('位置情報がまだ取得できていません。少し待ってから再度お試しください。');
+         alert('<%= j t(".alert_waiting_for_gps") %>');
          return;
       }
 
@@ -99,7 +98,7 @@
       }, SEND_INTERVAL);
 
       // UIの更新
-      updateStatus('送信を開始しました。', false, 'bg-blue-50', 'text-blue-700');
+      updateStatus('<%= j t(".status_started") %>', false, 'bg-blue-50', 'text-blue-700');
       startButton.disabled = true;
       stopButton.disabled = false;
       authCodeInput.disabled = true;
@@ -126,15 +125,15 @@
         const result = await response.json();
 
         if (response.ok) {
-          updateStatus(`送信成功 (${new Date().toLocaleTimeString()})<br>
-                       緯度: ${coords.latitude.toFixed(6)}<br>
-                       経度: ${coords.longitude.toFixed(6)}`, false, 'bg-green-50', 'text-green-700');
+          updateStatus(`<%= j t(".status_success") %> (${new Date().toLocaleTimeString()})<br>
+                       <%= j t(".latitude") %>: ${coords.latitude.toFixed(6)}<br>
+                       <%= j t(".longitude") %>: ${coords.longitude.toFixed(6)}`, false, 'bg-green-50', 'text-green-700');
         } else {
-          updateStatus(`送信エラー: ${result.message || 'サーバーエラー'}`, true);
+          updateStatus(`<%= j t(".status_send_error") %>: ${result.message || '<%= j t(".status_server_error") %>'}`, true);
           stopWatchingAndSending(); // 認証エラーなら停止
         }
       } catch (error) {
-        updateStatus(`通信エラー: ${error.message}`, true);
+        updateStatus(`<%= j t(".status_network_error") %>: ${error.message}`, true);
       }
     }
 
@@ -148,7 +147,7 @@
       lastPosition = null;
 
       // UIを初期状態に戻す
-      updateStatus('（停止中）');
+      updateStatus('<%= j t(".status_stopped") %>');
       startButton.disabled = false;
       stopButton.disabled = true;
       authCodeInput.disabled = false;

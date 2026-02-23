@@ -25,23 +25,23 @@ class Admin::FestivalsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show festival" do
-    get admin_festival_url(@festival)
+    get admin_festival_url(locale: 'ja', id: @festival)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_admin_festival_url(@festival)
+    get edit_admin_festival_url(locale: 'ja', id: @festival)
     assert_response :success
   end
 
   test "should update festival" do
-    patch admin_festival_url(@festival), params: { festival: { is_active: @festival.is_active, name: @festival.name } }
-    assert_redirected_to admin_festival_url(@festival)
+    patch admin_festival_url(locale: 'ja', id: @festival), params: { festival: { is_active: @festival.is_active, name: @festival.name } }
+    assert_redirected_to admin_festival_url(locale: 'ja', id: @festival)
   end
 
   test "should destroy festival" do
     assert_difference("Festival.count", -1) do
-      delete admin_festival_url(@festival)
+      delete admin_festival_url(locale: 'ja', id: @festival)
     end
 
     assert_redirected_to admin_festivals_url

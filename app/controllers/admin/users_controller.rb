@@ -23,6 +23,13 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    # パスワードがフォームにないため自動生成する
+    if @user.password.blank?
+      generated_password = SecureRandom.alphanumeric(10)
+      @user.password = generated_password
+      @user.password_confirmation = generated_password
+    end
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to admin_user_url(@user), notice: t("flash.actions.create.notice", resource_name: User.model_name.human) }
@@ -36,6 +43,12 @@ class Admin::UsersController < ApplicationController
 
   # PATCH/PUT /admin/users/1 or /admin/users/1.json
   def update
+    # パスワードが空欄で送信された場合は、パスワードを変更せずに更新する
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to admin_user_url(@user), notice: t("flash.actions.update.notice", resource_name: User.model_name.human), status: :see_other }
@@ -65,6 +78,6 @@ class Admin::UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.expect(user: [ :email, :role ])
+      params.expect(user: [ :email, :role, :password, :password_confirmation ])
     end
 end
