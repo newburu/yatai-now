@@ -69,7 +69,7 @@ ja:
         icon_description: "マップに表示されるアイコンです。正方形に近い画像推奨。"
         prompt_festival: "祭りを選択"
         prompt_manager: "担当者を選択"
-        auth_code_description: "通常は自動生成されますが、必要であれば手動で設定できます。"
+        auth_code_description: "空欄にして保存すると新しい合言葉が自動で再発行されます。"
     settings:
       edit:
         title: "全体設定"

@@ -12,12 +12,12 @@ class Stall < ApplicationRecord
   has_one :latest_location, -> { order(timestamp: :desc) }, class_name: "Location"
 
   # GPS合言葉を自動生成する（任意）
-  before_create :generate_auth_code
+  before_validation :generate_auth_code
 
   private
 
   def generate_auth_code
     # 例: "A地区" -> "A-chiku-" + ランダム文字列
-    self.auth_code ||= "#{self.name.parameterize}-#{SecureRandom.alphanumeric(6)}"
+    self.auth_code = "#{self.name.parameterize}-#{SecureRandom.alphanumeric(6)}" if self.auth_code.blank?
   end
 end

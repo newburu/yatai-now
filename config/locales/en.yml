@@ -69,7 +69,7 @@ en:
         icon_description: "This icon is displayed on the map. A square-like image is recommended."
         prompt_festival: "Select a festival"
         prompt_manager: "Select a manager"
-        auth_code_description: "This is usually auto-generated, but can be set manually if needed."
+        auth_code_description: "Leave blank and save to auto-generate a new code."
     settings:
       edit:
         title: "Global Settings"
